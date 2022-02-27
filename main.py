@@ -41,7 +41,12 @@ def start_message(message):
 
 @bot.message_handler(commands=['help'])
 def start_message(message):
-    bot.send_message(message.chat.id, ' /// ',)
+    bot.send_message(message.chat.id, 'Этот телеграмм-бот предназначен для выполнения лабораторной работы №7. '
+                                      '\nЗдесь хранится расписание для группы БИН2008.'
+                                      '\nБот создала студентка этой группы Стародумова Мария Павловна'
+                                      '\n\nЧтобы начать работу введите /start'
+                                      '\nЧтобы узнать какая сейчас неделя (верхняя/нижняя) введите /week'
+                                      '\nЧтобы перейти на сайт Мтуси введите /mtuci',)
 
 def keyboard():
     but1 = types.KeyboardButton('Понедельник')
