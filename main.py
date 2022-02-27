@@ -26,6 +26,22 @@ def start_message(message):
                                           '\n\nПожалуйста, выберите интересующий вас день',
         reply_markup=keyboard())
 
+@bot.message_handler(commands=['week'])
+def start_message(message):
+    if c == 0:
+        bot.send_message(message.chat.id, 'Добрый день, сейчас  ⬆️верхняя⬆️  неделя. ',
+        reply_markup=keyboard())
+    elif c == 1:
+        bot.send_message(message.chat.id, 'Добрый день, сейчас  ⬇️нижняя⬇️  неделя. ',
+        reply_markup=keyboard())
+
+@bot.message_handler(commands=['mtuci'])
+def start_message(message):
+    bot.send_message(message.chat.id, 'https://mtuci.ru/',)
+
+@bot.message_handler(commands=['help'])
+def start_message(message):
+    bot.send_message(message.chat.id, ' /// ',)
 
 def keyboard():
     but1 = types.KeyboardButton('Понедельник')
@@ -360,6 +376,12 @@ def manipulator(message):
                 x1 += str(row[i]) + '    '
             x1 += '\n\n'
         bot.send_message(message.chat.id, x1, reply_markup=keyboard())
+    elif message.text == 'привет':
+        bot.send_message(message.chat.id, 'Приветствую Вас!')
+    elif message.text == 'расписание':
+        bot.send_message(message.chat.id, 'Просто введите /start или нажмите на нужный день недели на панели с кнопками')
+    else:
+        bot.send_message(message.chat.id, 'Извините, я Вас не понял.',)
 
 
 @bot.message_handler(commands=['button'])
